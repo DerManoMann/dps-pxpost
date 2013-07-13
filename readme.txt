@@ -1,7 +1,7 @@
-DPS PxPost PAYMENT MODULE FOR zen-cart 1.3.x
-------------------------------------------------
-Version 1.3.1 - for zen-cart 1.3.x
-Copyright (c) 2006 mixedmatter Ltd
+DPS PxPost PAYMENT MODULE FOR zen-cart 1.3.x, 1.5.x
+===================================================
+Version ${version} - for zen-cart 1.3.x
+Copyright (c) 2006-2013 mixedmatter Ltd
 Copyright (c) 2004,2005 Attitude Group Ltd
 
 Adapted from dps_pxpost_0112
@@ -48,7 +48,7 @@ Version 1.0 by Martin Rademacher, mixed matter Ltd; martin@mixedmatter.co.nz
 Direct Payment Solutions (DPS) offers the PxPost method for processing
 credit card transactions in realtime.
 
-DPS Website: http://www.dps.co.nz/
+DPS Website: http://www.paymentexpress.com/
 PxPost Information: http://www.paymentexpress.com/blue.asp?id=d_pxpost
 
 This payment module allows acceptance of credit card payments via 
@@ -61,7 +61,7 @@ DPS server.
 
 1.1 Requirements
 ----------------
-A PxPost account with DPS - http://www.dps.co.nz
+A PxPost account with DPS - http://www.paymentexpress.com
 An SSL certificate for your site
 CURL support for PHP - your host or a phpinfo page should be able to 
 confirm this.
@@ -75,7 +75,7 @@ BEFORE INSTALLING. Use this code at your own risk. No warranty offered.
 
 3. Installation Instructions
 ----------------------------
-3.1. In the zip file are two files called dps.php. 
+3.1. In the zip file are two files called dps_pxpost.php. 
 The payment module file in the zen-cart/includes/modules/payment/ directory 
 should be uploaded into the includes/modules/payment/ directory on your 
 site.

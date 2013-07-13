@@ -4,12 +4,12 @@
  * --------------------------------------------
  * Copyright (c) 2006 mixedmatter Ltd
  * Copyright (c) 2004,2005 Attitude Group Ltd
- * 
+ *
  * Adapted from dps_pxpost_0112
  * http://www.oscommerce.co.nz/contributions/dps_pxpost_0112.zip
- * 
- * DPS PxPost Payment Module for zen-cart 1.3.x is released under 
- * the terms of the General Public License. Please see the license.txt 
+ *
+ * DPS PxPost Payment Module for zen-cart 1.3.x is released under
+ * the terms of the General Public License. Please see the license.txt
  * for more details.
  *
  * $Id: dps_pxpost.php,v 1.1 2008/02/28 09:16:27 radebatz Exp $
@@ -18,7 +18,7 @@
 <?php
 
     define('MODULE_PAYMENT_DPS_PXPOST_TEXT_TITLE', 'DPS PxPost Credit Card');
-    define('MODULE_PAYMENT_DPS_PXPOST_TEXT_DESCRIPTION', 'DPS PxPost Method for Credit Card Processing - mixedmatter Ltd. ver. 1.3.1');
+    define('MODULE_PAYMENT_DPS_PXPOST_TEXT_DESCRIPTION', 'DPS PxPost Method for Credit Card Processing - mixedmatter Ltd. ver. ${version}');
     define('MODULE_PAYMENT_DPS_PXPOST_TEXT_TYPE', 'Type:');
     define('MODULE_PAYMENT_DPS_PXPOST_TEXT_CREDIT_CARD_OWNER', 'Credit Card Owner:');
     define('MODULE_PAYMENT_DPS_PXPOST_TEXT_CREDIT_CARD_NUMBER', 'Credit Card Number:');
