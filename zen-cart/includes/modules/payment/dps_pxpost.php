@@ -4,12 +4,12 @@
  * --------------------------------------------
  * Copyright (c) 2006 mixedmatter Ltd
  * Copyright (c) 2004,2005 Attitude Group Ltd
- * 
+ *
  * Adapted from dps_pxpost_0112
  * http://www.oscommerce.co.nz/contributions/dps_pxpost_0112.zip
- * 
- * DPS PxPost Payment Module for zen-cart 1.3.x is released under 
- * the terms of the General Public License. Please see the license.txt 
+ *
+ * DPS PxPost Payment Module for zen-cart 1.3.x is released under
+ * the terms of the General Public License. Please see the license.txt
  * for more details.
  *
  * $Id: dps_pxpost.php,v 1.3 2008/02/29 09:13:03 radebatz Exp $
@@ -39,14 +39,14 @@ class dps_pxpost {
         $this->dps_url = 'https://sec.paymentexpress.com/pxpost.aspx';
     }
 
-    
+
     // update status
     function update_status() {
     global $order, $db;
 
         if ($this->enabled && ((int)MODULE_PAYMENT_DPS_PXPOST_ZONE > 0)) {
             $check_flag = false;
-            $sql = "select zone_id from " . TABLE_ZONES_TO_GEO_ZONES . " 
+            $sql = "select zone_id from " . TABLE_ZONES_TO_GEO_ZONES . "
                     where geo_zone_id = '" . MODULE_PAYMENT_DPS_PXPAY_ZONE . "'
                       and zone_country_id = :countryId
                     order by zone_id";
@@ -111,7 +111,7 @@ class dps_pxpost {
             $expires_month[] = array('id' => sprintf('%02d', $ii), 'text' => strftime('%B',mktime(0,0,0,$ii,1,2000)));
         }
 
-        $today = getdate(); 
+        $today = getdate();
         for ($ii=$today['year']; $ii < $today['year']+10; $ii++) {
             $expires_year[] = array('id' => strftime('%y',mktime(0,0,0,1,1,$ii)), 'text' => strftime('%Y',mktime(0,0,0,1,1,$ii)));
         }
@@ -127,7 +127,7 @@ class dps_pxpost {
                                            array('title' => MODULE_PAYMENT_DPS_PXPOST_TEXT_CREDIT_CARD_EXPIRES,
                                                  'field' => zen_draw_pull_down_menu('dps_cc_expires_month', $expires_month) . '&nbsp;' . zen_draw_pull_down_menu('dps_cc_expires_year', $expires_year)),
                                            array('title' => MODULE_PAYMENT_DPS_PXPOST_LOGO,
-                                                 'field' => MODULE_PAYMENT_DPS_PXPOST_LOGO_TEXT),                                                 
+                                                 'field' => MODULE_PAYMENT_DPS_PXPOST_LOGO_TEXT),
                                                  ));
         if (MODULE_PAYMENT_DPS_PXPOST_COLLECT_CVV == 'True')  {
             array_pop($selection['fields']);
@@ -135,7 +135,7 @@ class dps_pxpost {
                                            'field' => zen_draw_input_field('dps_cvv', '', 'id="'.$this->code.'-dps-cvv"'),
                                            'tag' => $this->code.'-dps-cvv');
             $selection['fields'][] = array('title' => MODULE_PAYMENT_DPS_PXPOST_LOGO,
-                                           'field' => MODULE_PAYMENT_DPS_PXPOST_LOGO_TEXT);                                                 
+                                           'field' => MODULE_PAYMENT_DPS_PXPOST_LOGO_TEXT);
         }
 
         return $selection;
@@ -237,7 +237,9 @@ class dps_pxpost {
         curl_setopt($curl, CURLOPT_URL, $this->dps_url);
         curl_setopt($curl, CURLOPT_POST, 1);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $query);
-        curl_setopt($curl, CURLOPT_POSTFIELDSIZE, 0);
+        if (defined('CURLOPT_POSTFIELDSIZE')) {
+            curl_setopt($curl, CURLOPT_POSTFIELDSIZE, 0);
+        }
         curl_setopt($curl, CURLOPT_TIMEOUT, 30);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 0);
@@ -280,7 +282,7 @@ class dps_pxpost {
         $block['EMAIL_MESSAGE_HTML'] = $dps_email_log;
         if (zen_validate_email(MODULE_PAYMENT_DPS_PXPOST_EMAIL)) {
             zen_mail('', MODULE_PAYMENT_DPS_PXPOST_EMAIL, $dps_email_subject, $dps_email_log, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS, $block);
-        }        
+        }
 
         if (!$dps_success) {
             zen_redirect(zen_href_link(FILENAME_CHECKOUT_PAYMENT, 'error_message=' . urlencode($dps_error_redirect), 'SSL', true, false));
@@ -364,7 +366,7 @@ class dps_pxpost {
     function keys() {
     global $db;
 
-        $results = $db->Execute("select configuration_key from " . TABLE_CONFIGURATION . " 
+        $results = $db->Execute("select configuration_key from " . TABLE_CONFIGURATION . "
                                  where configuration_key like 'MODULE_PAYMENT_DPS_PXPOST_%' " . "
                                  order by sort_order");
         $keys = array();
@@ -374,7 +376,7 @@ class dps_pxpost {
         }
         return $keys;
     }
-    
+
 
     // internal function to parse response
     function _dps_attribute_value($attribute,$string) {
@@ -382,5 +384,5 @@ class dps_pxpost {
     	return substr($exploded_value,0,strpos($exploded_value,'</'.$attribute.'>'));
     }
 }
-  
+
 ?>
