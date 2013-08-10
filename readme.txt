@@ -79,12 +79,17 @@ BEFORE INSTALLING. Use this code at your own risk. No warranty offered.
 The payment module file in the zen-cart/includes/modules/payment/ directory 
 should be uploaded into the includes/modules/payment/ directory on your 
 site.
-The language file in the zen-cart/includes/languages/english/modules/payment/ 
-directory should be uploaded to the 
-includes/languages/english/modules/payment/ directory on your 
-site.
-The dps logo image in the catalog/images/ folder should be uploaded into the 
+
+3.2 The language file in the zen-cart/includes/languages/english/modules/payment/ 
+directory should be uploaded to the includes/languages/english/modules/payment/ 
+directory on your site.
+
+3.3 The dps logo image in the catalog/images/ folder should be uploaded into the 
 zen-cart/images/ directory on your site.
+
+3.4 If using PHP with the suhosin extension it is required to have the setting 
+'suhosin.get.max_value_length' set to also at least 2048 in order to allow PHP
+to process long redirect urls.
 
 
 4. Setup and Configuration
