@@ -1,0 +1,26 @@
+Version 1.4 by AK
+* updated DPS image to new logo (untested)
+* Updated DPS URL to new address
+
+Version 1.3 by Martin Rademacher, mixed matter Ltd; martin@mixedmatter.co.nz
+* changed name and files to dps_pxpost; this requires to uninstall the last version 
+  before upgrading (incl. deleting the two dps.php files)
+* removed unused option to select the DPS PxPost URL
+* fixed broken zone check
+* add option to additionally store name, expiry date and card type in database
+* fix HTML email content and make log look (marginally) nicer
+
+Version 1.2 by Martin Rademacher, mixed matter Ltd; martin@mixedmatter.co.nz
+* added conditional code to configure curl on Windows OS
+* updated DPS URL to https://www.paymentexpress.com/pxpost.aspx
+* Changed cURL configuration to force SSLv3
+
+Version 1.1 by Martin Rademacher, mixed matter Ltd; martin@mixedmatter.co.nz
+* module hangs when multiple zones available
+* code formatting
+* make options sort order work
+
+Version 1.0 by Martin Rademacher, mixed matter Ltd; martin@mixedmatter.co.nz
+* modifications for use with zen-cart 1.3.x
+* optional use of cvv field
+* removal of session usage
