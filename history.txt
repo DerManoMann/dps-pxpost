@@ -1,3 +1,10 @@
+Version 1.5 by Martin Rademacher, mixed matter Ltd; martin@mixedmatter.co.nz
+* moved source code to github: https://github.com/DerManoMann/dps-pxpost
+* fixed CURLOPT_POSTFIELDSIZE warning
+* changed to setting messages via $messageStack rather than as url parameter (fails with
+  long messages)
+* add suhosin note to readme (module will fail if allowed url size is not adjusted)
+
 Version 1.4 by AK
 * updated DPS image to new logo (untested)
 * Updated DPS URL to new address
