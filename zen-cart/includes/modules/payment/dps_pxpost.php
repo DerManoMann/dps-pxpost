@@ -274,8 +274,7 @@ class dps_pxpost {
         curl_close($curl);
 
         // cardnumber comes back already obfuscated
-        $dps_email_log = ereg_replace('<', '[', $result);
-        $dps_email_log = ereg_replace('>', ']', $dps_email_log);
+        $dps_email_log = str_replace(array('<', '>'), array('[', ']'), $result);
 
         // if DPS email logging email valid - send report
         $block = array();
