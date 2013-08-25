@@ -210,7 +210,7 @@ class dps_pxpost {
 
     // before process
     function before_process() {
-    global $customer_id, $order, $ft_validation;
+    global $customer_id, $order, $ft_validation, $messageStack;
 
         // amount
         $amount = $order->info['total'];
@@ -285,7 +285,8 @@ class dps_pxpost {
         }
 
         if (!$dps_success) {
-            zen_redirect(zen_href_link(FILENAME_CHECKOUT_PAYMENT, 'error_message=' . urlencode($dps_error_redirect), 'SSL', true, false));
+            $messageStack->add_session('checkout_payment', $dps_error_redirect, 'error');
+            zen_redirect(zen_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL', true, false));
         }
 
         if (MODULE_PAYMENT_DPS_PXPOST_COLLECT_CVV == 'True')  {
