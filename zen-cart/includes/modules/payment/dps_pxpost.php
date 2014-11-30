@@ -244,7 +244,7 @@ class dps_pxpost {
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 0);
         curl_setopt($curl, CURLOPT_HEADER, 0);
-        curl_setopt($curl, CURLOPT_SSLVERSION, 3);
+//        curl_setopt($curl, CURLOPT_SSLVERSION, 3);
 
         if (strtoupper(substr(@php_uname('s'), 0, 3)) === 'WIN') {
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
