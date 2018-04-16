@@ -1,3 +1,8 @@
+===================================================
+ + THIS REPOSITORY IS NO LONGER MAINTAINED        =
+===================================================
+
+
 DPS PxPost payment module v${version} for zen-cart
 ===================================================
 Copyright (c) 2006-2013 mixedmatter Ltd
